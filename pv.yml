@@ -11,4 +11,9 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   hostPath:
-    path: "/tmp"
+    path: "/tmp/data"
+  
+  #If we have already a ebs create and we can mount by below or if not use storage class to create the ebs dynamically.
+  #awsElasticBlockStore:
+    #volumeID: "vol-xx"
+    #fstype: ext4

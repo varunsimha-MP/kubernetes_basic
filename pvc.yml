@@ -6,6 +6,13 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: local-storage
+  
   accessModes:
     - ReadWriteOnce
+  
+  #For dynamic volume creation
+  storageClassName: local-storage
+
+  #For already created volume which storage class is not required
+  #volumeName: ebs-static-pv    # <-- binds to that PV by name
+
