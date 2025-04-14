@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-storage-app
+  labels:
+    name: my-storage-app
+spec:
+  containers:
+  - name: myapp
+    image: myapp:latest
+    imagePullPolicy: Never
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8000
+    volumeMounts:
+    - mountPath: "/app/data"
+      name: my-storage
+
+  volumes:
+  - name: my-storage
+    persistentVolumeClaim:
+      claimName: my-local-pvc
+    
+    
+
